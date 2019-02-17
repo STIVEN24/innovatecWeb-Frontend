@@ -1,0 +1,21 @@
+<button class="btn btn-green" routerLink="/admin/rol/create"> Crear nuevo rol </button>
+<div class="table-responsive">
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rol of roles">
+                <td> {{ rol.id_rol }} </td>
+                <td> {{ rol.nombre_rol | titlecase }} </td>
+                <td> <a [routerLink]="['/rol/update', rol.id_rol]"> <button class="btn btn-blue"> Actualizar </button> </a> </td>
+                <td> <button class="btn btn-red" (click)="deleteRol(rol.id_rol)">Eliminar</button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
