@@ -17,8 +17,6 @@ $(document).ready(function () {
         }
     }, 1000);
 
-
-
     var elem = document.querySelector('.collapsible.expandable');
     M.Collapsible.init(elem, {
         accordion: false

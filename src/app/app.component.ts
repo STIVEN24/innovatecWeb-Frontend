@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  anno = new Date();
+	anno = new Date();
   
 }

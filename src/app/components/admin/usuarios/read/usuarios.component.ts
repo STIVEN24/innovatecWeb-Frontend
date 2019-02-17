@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
+// --- services --- //
 import { CuentaService } from '../../../../services/cuenta.service';
+import { RolService } from '../../../../services/rol.service';
 
 @Component({
   selector: 'app-user-read',
@@ -8,27 +11,51 @@ import { CuentaService } from '../../../../services/cuenta.service';
 })
 export class UsuariosComponent implements OnInit {
 
-  usuarios: any = [];
+  usuariosList: any = [];
+  rolesList: any = [];
 
-  constructor(private cuentaService: CuentaService) { }
+  rolesBool: boolean = false;
+  usuariosBool: boolean = false;
+
+  constructor(
+    private cuentaService: CuentaService,
+    private rolService: RolService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.getUsuarios();
+
+    const params = this.activatedRoute.snapshot.params.usuarios;
+
+    if (params === 'roles') {
+      this.getRoles();
+      this.rolesBool = true;
+    }
+    if (params === 'usuarios') {
+      this.getUsuarios();
+      this.usuariosBool = true;
+    }
+
   }
 
   getUsuarios() {
     this.cuentaService.getUsers().subscribe(
-      res => {
-        this.usuarios = res;
-      },
+      res => this.usuariosList = res,
       err => console.log(err)
-    );
+    )
+  }
+
+  getRoles() {
+    this.rolService.getRols().subscribe(
+      res => this.rolesList = res,
+      err => console.log(err)
+    )
   }
 
   deleteUser(id: number) {
     this.cuentaService.deleteUser(id).subscribe(
       res => {
-        this.getUsuarios();
+        this.getUsuarios()
       },
       err => console.log(err)
     )

@@ -8,7 +8,6 @@ import { indexComponent } from '../components/index/index.component';
 import { UsuariosComponent } from '../components/admin/usuarios/read/usuarios.component';
 
 // --- roles --- //
-import { RolesComponent } from '../components/admin/roles/read/roles.component';
 import { RolFormComponent } from '../components/admin/roles/forms/rol.component';
 
 // --- auth --- //
@@ -25,16 +24,20 @@ import { GestionarComponent } from '../components/proyectos-investigacion/gestio
 import { SolarComponent } from '../components/proyectos-investigacion/solares/solar.component';
 import { AgriculturaComponent } from '../components/proyectos-investigacion/agricultura/agricultura.component';
 
+// --- conocenos --- //
+import { ConocenosComponent } from '../components/conocenos/conocenos.component';
+
 const routes: Routes = [
   { path: '', component: indexComponent },
 
   // --- --- admin --- --- //
   // --- usuarios --- //
-  { path: 'admin/usuarios', component: UsuariosComponent },
+  { path: 'admin', component: UsuariosComponent },
+  { path: 'admin/:usuarios', component: UsuariosComponent },
   { path: 'admin/usuarios/create', component: signUp },
   { path: 'admin/usuario/update/:id', component: signUp },
   // --- rols --- //
-  { path: 'admin/roles', component: RolesComponent },
+  { path: 'admin/:roles', component: UsuariosComponent },
   { path: 'admin/rol/create', component: RolFormComponent },
 
   // --- auth --- //
@@ -51,6 +54,9 @@ const routes: Routes = [
   { path: 'proyectos_investigacion/gestionar', component: GestionarComponent },
   { path: 'proyectos_investigacion/solares', component: SolarComponent },
   { path: 'proyectos_investigacion/agricultura', component: AgriculturaComponent },
+
+  // --- contáctanos --- //
+  { path: 'conocenos', component: ConocenosComponent },
 
   // --- page not found --- //
   { path: '**', redirectTo: '', pathMatch: 'full' }

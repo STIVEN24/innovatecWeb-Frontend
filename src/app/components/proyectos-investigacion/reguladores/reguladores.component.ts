@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     templateUrl: './reguladores.component.html'
 })
 
 export class ReguladoresComponent implements OnInit {
+
+    constructor(
+        private titleService: Title
+    ) {
+        this.titleService.setTitle('Innovatec - Proyectos de investigación - Reguladores FV');
+    }
 
     imgs: any = [];
 

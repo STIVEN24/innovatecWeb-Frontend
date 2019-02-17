@@ -20,84 +20,82 @@
 </form> -->
 
 <div class="row">
-	<div class="col m6 s12 ">
+	<!-- Warning -->
+	<div class="col m6 s12 l6 offset-l3">
 		<div class="card-panel orange lighten-5">
 			<ul>
-				<li>Campos con los asteriscos(*) son obligatorios.</li>
+				<li>Campos con asteriscos(*) son obligatorios.</li>
 				<li>Número de documento sin puntos(.), comas(,) y sin espacios.</li>
 			</ul>
 		</div>
 	</div>
+	<!-- Formmulario -->
 	<form class="col s12" [formGroup]="signUpForm" (ngSubmit)="update ? updateUsuario() : signUp()" autocomplete="off">
 		<div class="row">
-			<div class="input-field col s12 m6">
-				<!-- <select name="id_tipo_documento" formControlName="id_tipo_documento">
-					<option value="" disabled selected>Escoge tu tipo de documento *</option>
-					<option *ngFor="let tipo_documento of tipos_documento" value="{{ tipo_documento.id_tipo_documento }}">{{ tipo_documento.nombre_tipo_documento | uppercase }}</option>
-				</select> -->
+			<!-- tipo de documento -->
+			<div class="input-field col l3 offset-l3">
 				<p *ngFor="let tipo_documento of tipos_documento">
-					<label>
+					<label class="{{ submitted && getErrors.id_tipo_documento.errors ? 'red-text' : '' }}">
 						<input class="with-gap" name="id_tipo_documento" type="radio" [value]="tipo_documento.id_tipo_documento" formControlName="id_tipo_documento" [(ngModel)]="cuenta.id_tipo_documento"/>
 						<span>{{ tipo_documento.nombre_tipo_documento | titlecase }} *</span>
 					</label>
 				</p>
-				<div *ngIf="submitted && getErrors.id_tipo_documento.errors" class="card-panel red lighten-1 white-text">
-					<div *ngIf="getErrors.id_tipo_documento.errors.required">Tipo de documento requerido</div>
-				</div>
 			</div>
-			<div class="input-field col s12 m6">
-				<input class="validate" id="documento" name="documento" type="tel" formControlName="documento" value="{{ cuenta.documento == 0 ? '' : '' }}" [(ngModel)]="cuenta.documento">
-				<label for="documento" class="{{ cuenta.documento ? 'active' : '' }}">Número de documento *</label>
-				<div *ngIf="submitted && getErrors.documento.errors" class="card-panel red lighten-1 white-text">
-					<div *ngIf="getErrors.documento.errors.required">Número de documento requerido</div>
-					<div *ngIf="getErrors.documento.errors.minlength">El número que ingresaste debe ser mayor a 7 números</div>
-				</div>
+			<!-- / -->
+			<!-- Número de documento -->
+			<div class="input-field col l3">
+				<input class="validate {{ submitted && getErrors.documento.errors ? 'invalid' : '' }}" id="documento" name="documento" type="tel" formControlName="documento" value="{{ cuenta.documento == 0 ? '' : '' }}" [(ngModel)]="cuenta.documento">
+				<label for="documento" class="{{ cuenta.documento ? 'active' : '' || submitted && getErrors.documento.errors ? 'active' : '' }}">Número de documento *</label>
+				<span class="helper-text" data-error="Requerido" data-success="Correcto"></span>
 			</div>
+			<!-- / -->
 		</div>
 		<div class="row">
-			<div class="input-field col s12 m6">
-				<input class="validate" id="primer_nombre" name="primer_nombre" type="text" formControlName="primer_nombre" [(ngModel)]="cuenta.primer_nombre">
-				<label for="primer_nombre" class="{{ cuenta.primer_nombre ? 'active' : '' }}">Primer nombre *</label>
-				<div *ngIf="submitted && getErrors.primer_nombre.errors" class="card-panel red lighten-1 white-text">
-					<div *ngIf="getErrors.primer_nombre.errors.required">Primer nombre requerido</div>
-				</div>
+			<!-- Primer nombre -->
+			<div class="input-field col l3 offset-l3">
+				<input class="validate {{ submitted && getErrors.primer_nombre.errors ? 'invalid' : '' }}" id="primer_nombre" name="primer_nombre" type="text" formControlName="primer_nombre" [(ngModel)]="cuenta.primer_nombre">
+				<label for="primer_nombre" class="{{ cuenta.primer_nombre ? 'active' : '' || submitted && getErrors.primer_nombre.errors ? 'active' : '' }}">Primer nombre *</label>
+				<span class="helper-text" data-error="Requerido" data-success="Correcto"></span>
 			</div>
-			<div class="input-field col s12 m6">
+			<!-- / -->
+			<!-- Segundo Nombre -->
+			<div class="input-field col l3">
 				<input id="segundo_nombre" type="text" class="validate" name="segundo_nombre" formControlName="segundo_nombre" [(ngModel)]="cuenta.segundo_nombre">
 				<label for="segundo_nombre" class="{{ cuenta.segundo_nombre ? 'active' : '' }}">Segundo nombre (Opcional)</label>
 			</div>
+			<!-- / -->
 		</div>
 		<div class="row">
-			<div class="input-field col s12 m6">
-				<input id="primer_apellido" type="text" class="validate" name="primer_nombre" formControlName="primer_apellido" [(ngModel)]="cuenta.primer_apellido">
-				<label for="primer_apellido" class="{{ cuenta.primer_apellido ? 'active' : '' }}">Primer apellido *</label>
-				<div *ngIf="submitted && getErrors.primer_apellido.errors" class="card-panel red lighten-1 white-text">
-					<div *ngIf="getErrors.primer_apellido.errors.required">Primer apellido es requerido</div>
-				</div>
+			<!-- Primer apellido -->
+			<div class="input-field col l3 offset-l3">
+				<input class="validate {{ submitted && getErrors.primer_apellido.errors ? 'invalid' : '' }}" id="primer_apellido" type="text" name="primer_nombre" formControlName="primer_apellido" [(ngModel)]="cuenta.primer_apellido">
+				<label for="primer_apellido" class="{{ cuenta.primer_apellido ? 'active' : '' || submitted && getErrors.primer_apellido.errors ? 'active' : '' }}">Primer apellido *</label>
+				<span class="helper-text" data-error="Requerido" data-success="Correcto"></span>
 			</div>
-			<div class="input-field col s12 m6">
-				<input id="segundo_apellido" type="text" class="validate" name="segundo_apellido" formControlName="segundo_apellido" [(ngModel)]="cuenta.segundo_apellido">
+			<!-- / -->
+			<!-- Segundo Apellido -->
+			<div class="input-field col l3">
+				<input id="segundo_apellido" type="text" name="segundo_apellido" formControlName="segundo_apellido" [(ngModel)]="cuenta.segundo_apellido">
 				<label for="segundo_apellido" class="{{ cuenta.segundo_apellido ? 'active' : '' }}">Segundo apellido (Opcional)</label>
 			</div>
+			<!-- / -->
 		</div>
 		<div class="row">
-			<div class="input-field col s12 m4">
+			<!-- Celular -->
+			<div class="input-field col l3 offset-l3">
 				<input id="celular" type="tel" class="validate" name="celular" formControlName="celular" value="{{ cuenta.celular == 0 ? '' : '' }}" [(ngModel)]="cuenta.celular">
 				<label for="celular" class="{{ cuenta.celular ? 'active' : '' }}">Celular o Teléfono (Opcional)</label>
-				<div *ngIf="submitted && getErrors.celular.errors" class="card-panel red lighten-1 white-text">
-					<div *ngIf="getErrors.celular.errors.minlength">Número de celular o teléfono debe ser mayor a 7 números</div>
-				</div>
 			</div>
-			<div class="input-field col s12 m4">
-				<input id="correo" type="email" class="validate" name="correo" formControlName="correo" [(ngModel)]="cuenta.correo">
-				<label for="correo" class="{{ cuenta.correo ? 'active' : '' }}">Correo electrónico *</label>
-				<div *ngIf="submitted && getErrors.correo.errors" class="card-panel red lighten-1 white-text">
-					<div *ngIf="getErrors.correo.errors.required">Correo electrónico requerido</div>
-					<div *ngIf="getErrors.correo.errors.email">Ingresa un correo valido</div>
-					<div *ngIf="getErrors.correo.errors.minlength">El correo debe ser mayor a 5 caracteres</div>
-				</div>
+			<!-- / -->
+			<!-- Correo -->
+			<div class="input-field col l3">
+				<input class="validate {{ submitted && getErrors.correo.errors ? 'invalid' : '' }}" id="correo" type="email" name="correo" formControlName="correo" [(ngModel)]="cuenta.correo">
+				<label for="correo" class="{{ cuenta.correo ? 'active' : '' || submitted && getErrors.correo.errors ? 'active' : '' }}">Correo electrónico *</label>
+				<span class="helper-text" data-error="Correo incorrecto" data-success="Correcto">example@empresa.com</span>
 			</div>
-			<div class="input-field col s12 m4">
+			<!-- / -->
+			<!-- Roles -->
+			<div class="input-field col offset-l3">
 				<!-- <select name="id_rol" formControlName="id_rol">
 					<option value="" disabled selected>Escoge tu cargo *</option>
 					<option *ngFor="let rol of rols" value="{{ rol.id_rol }}">{{ rol.nombre_rol | uppercase }}</option>
@@ -112,6 +110,7 @@
 					<div *ngIf="getErrors.id_rol.errors.required">Tipo de rol que tienes</div>
 				</div>
 			</div>
+			<!-- / -->
 		</div>
 		<button class="btn {{ update ? 'blue col s3 m2 offset-m5 waves-effect waves-light' : 'teal col s6 m2 offset-m5 offset-s3 waves-effect waves-light' }}" type="submit">{{ update ? 'Guardar cambios' : 'Registrarse' }}</button>
 		<button (click)="cancelarUpdate()" *ngIf="update" class="btn red waves-effect waves-light {{ update ? 'col s3 m2 offset-m3 offset-s6' : '' }}">Cancelar</button>

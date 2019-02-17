@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     templateUrl: './potabilizacion.component.html'
 })
 
 export class PotabilizacionComponent implements OnInit {
+
+    constructor(
+        private titleService: Title
+    ) {
+        this.titleService.setTitle('Innovatec - Proyectos de investigación - Potabilización de agua');
+    }
 
     imgs: any = [];
 

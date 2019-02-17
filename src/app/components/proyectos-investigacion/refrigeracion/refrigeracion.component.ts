@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     templateUrl: './refrigeracion.component.html'
 })
 
 export class RefrigeracionComponent implements OnInit {
+
+    constructor(
+        private titleService: Title
+    ) {
+        this.titleService.setTitle('Innovatec - Proyectos de investigación - Refrigeración');
+    }
 
     imgs: any = [];
 

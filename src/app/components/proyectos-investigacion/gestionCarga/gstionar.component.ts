@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     templateUrl: './gestionar.component.html'
 })
 
 export class GestionarComponent implements OnInit {
+
+    constructor(
+        private titleService: Title
+    ) {
+        this.titleService.setTitle('Innovatec - Proyectos de investigación - Gestión de carga');
+    }
 
     imgs: any = [];
 

@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     templateUrl: './solar.component.html'
 })
 
 export class SolarComponent implements OnInit {
+
+    constructor(
+        private titleService: Title
+    ) {
+        this.titleService.setTitle('Innovatec - Proyectos de investigación - Seguidores solares');
+    }
 
     imgs: any = [];
 

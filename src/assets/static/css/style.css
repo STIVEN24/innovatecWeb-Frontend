@@ -32,7 +32,7 @@ html::-webkit-scrollbar-thumb:hover  { background:#008f98  }
 .slider .slides
   { background-color:#fff !important }
 .slider .progress
-  { position:absolute; top:50%; left:0; }
+  { position:absolute; top:50%; left:0; right:0; max-width:200px; margin:auto;  }
 
 /* --- Materialize-css modified --- */
 nav 
@@ -78,3 +78,8 @@ blockquote
   { width:100%; overflow:auto }
 table th
   { white-space:nowrap }
+td, th
+  { border-right:1px solid #D2D2D2 !important }
+
+.page-footer .footer-copyright
+  { padding:0 !important;  }

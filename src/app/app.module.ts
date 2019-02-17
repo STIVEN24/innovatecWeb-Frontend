@@ -1,8 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// --- modules --- //
 import { routingModule } from './modules/routing.module';
 
 import { AppComponent } from './app.component';
@@ -17,7 +18,6 @@ import { footer } from './components/public/footer/footer';
 import { UsuariosComponent } from './components/admin/usuarios/read/usuarios.component';
 
 // --- rols --- //
-import { RolesComponent } from './components/admin/roles/read/roles.component';
 import { RolFormComponent } from './components/admin/roles/forms/rol.component';
 
 // --- auth --- //
@@ -33,6 +33,9 @@ import { RefrigeracionComponent } from './components/proyectos-investigacion/ref
 import { GestionarComponent } from './components/proyectos-investigacion/gestionCarga/gstionar.component';
 import { SolarComponent } from './components/proyectos-investigacion/solares/solar.component';
 import { AgriculturaComponent, } from './components/proyectos-investigacion/agricultura/agricultura.component';
+
+// --- connocenos --- //
+import { ConocenosComponent } from './components/conocenos/conocenos.component';
 
 // --- services --- //
 import { CuentaService } from './services/cuenta.service';
@@ -55,11 +58,12 @@ import { TipoDocumentoService } from './services/tipoDocumento.service';
     GestionarComponent,
     SolarComponent,
     AgriculturaComponent,
+    // --- conocenos --- //
+    ConocenosComponent,
     // --- --- admin --- --- //
     // --- users --- //
     UsuariosComponent,
     // --- rols --- //
-    RolesComponent,
     RolFormComponent,
     // --- auth --- //
     logIn,
@@ -76,7 +80,8 @@ import { TipoDocumentoService } from './services/tipoDocumento.service';
   providers: [
     CuentaService,
     ToastService,
-    TipoDocumentoService
+    TipoDocumentoService,
+    Title
   ],
   bootstrap: [
     AppComponent

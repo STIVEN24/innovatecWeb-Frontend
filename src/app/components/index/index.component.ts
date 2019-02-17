@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 import * as CanvasJS from '../../../assets/static/js/canvasjs/canvasjs.min.js';
 
@@ -15,9 +16,14 @@ export class indexComponent implements OnInit {
 
     public dataPoints = [];
 
-    constructor(private http: HttpClient) { }
+    constructor(
+        private http: HttpClient,
+        private titleService: Title
+    ) { }
 
     ngOnInit() {
+
+        this.titleService.setTitle('Innovatec - Inicio');
 
         this.chart = new CanvasJS.Chart('chart', {
             animationEnabled: true,

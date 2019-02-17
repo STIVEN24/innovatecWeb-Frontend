@@ -58,12 +58,10 @@ export class signUp implements OnInit {
 			segundo_nombre: [''],
 			primer_apellido: ['', Validators.required],
 			segundo_apellido: [''],
-			celular: ['', [Validators.minLength(7)]],
+			celular: [''],
 			correo: ['', [Validators.required, Validators.email, Validators.minLength(5)]],
 			id_rol: ['', Validators.required]
 		});
-
-
 
 		const params = this.activatedRoute.snapshot.params;
 		if (params.id) {
@@ -75,8 +73,6 @@ export class signUp implements OnInit {
 				err => this.router.navigate(['/admin/usuarios'])
 			)
 		}
-
-
 
 	}
 
@@ -121,7 +117,7 @@ export class signUp implements OnInit {
 	updateUsuario() {
 		this.cuentaService.updateUser(this.cuenta.id_cuenta, this.cuenta).subscribe(
 			res => {
-				this.toasts.CreateElementToast(res.text)
+				this.toasts.CreateElementToast('Usuarios actualizado')
 				this.router.navigate(['/admin/usuarios']);
 			},
 			err => console.log(err),
