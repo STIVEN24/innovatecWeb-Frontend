@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    templateUrl: './solar.component.html'
+    templateUrl: './agricultura.component.html'
 })
 
-export class SolarComponent implements OnInit {
+export class AgriculturaComponent implements OnInit {
 
     imgs: any = [];
 

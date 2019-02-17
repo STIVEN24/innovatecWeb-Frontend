@@ -29,6 +29,10 @@ html::-webkit-scrollbar-thumb:hover  { background:#008f98  }
   { height:400px !important; }
 .slider > ul.indicators
   { bottom:30px; z-index:2 }
+.slider .slides
+  { background-color:#fff !important }
+.slider .progress
+  { position:absolute; top:50%; left:0; }
 
 /* --- Materialize-css modified --- */
 nav 

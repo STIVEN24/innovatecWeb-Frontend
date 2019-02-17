@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 // --- models --- //
-import { Cuenta } from '../../../models/cuenta';
+import { Cuenta } from '../../../models/Cuenta';
 // --- services --- //
 import { CuentaService } from '../../../services/cuenta.service';
 import { RolService } from '../../../services/rol.service';

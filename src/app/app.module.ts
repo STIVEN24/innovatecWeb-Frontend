@@ -32,6 +32,7 @@ import { ReguladoresComponent } from './components/proyectos-investigacion/regul
 import { RefrigeracionComponent } from './components/proyectos-investigacion/refrigeracion/refrigeracion.component';
 import { GestionarComponent } from './components/proyectos-investigacion/gestionCarga/gstionar.component';
 import { SolarComponent } from './components/proyectos-investigacion/solares/solar.component';
+import { AgriculturaComponent, } from './components/proyectos-investigacion/agricultura/agricultura.component';
 
 // --- services --- //
 import { CuentaService } from './services/cuenta.service';
@@ -53,6 +54,7 @@ import { TipoDocumentoService } from './services/tipoDocumento.service';
     RefrigeracionComponent,
     GestionarComponent,
     SolarComponent,
+    AgriculturaComponent,
     // --- --- admin --- --- //
     // --- users --- //
     UsuariosComponent,

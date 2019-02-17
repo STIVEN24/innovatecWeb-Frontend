@@ -23,6 +23,7 @@ import { ReguladoresComponent } from '../components/proyectos-investigacion/regu
 import { RefrigeracionComponent } from '../components/proyectos-investigacion/refrigeracion/refrigeracion.component';
 import { GestionarComponent } from '../components/proyectos-investigacion/gestionCarga/gstionar.component';
 import { SolarComponent } from '../components/proyectos-investigacion/solares/solar.component';
+import { AgriculturaComponent } from '../components/proyectos-investigacion/agricultura/agricultura.component';
 
 const routes: Routes = [
   { path: '', component: indexComponent },
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'proyectos_investigacion/refrigeracion', component: RefrigeracionComponent },
   { path: 'proyectos_investigacion/gestionar', component: GestionarComponent },
   { path: 'proyectos_investigacion/solares', component: SolarComponent },
+  { path: 'proyectos_investigacion/agricultura', component: AgriculturaComponent },
 
   // --- page not found --- //
   { path: '**', redirectTo: '', pathMatch: 'full' }
