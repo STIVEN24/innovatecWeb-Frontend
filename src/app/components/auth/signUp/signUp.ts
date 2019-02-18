@@ -33,7 +33,7 @@ export class signUp implements OnInit {
 	};
 
 	update: boolean = false;
-	submitted = false;
+	submitted: boolean = false;
 	signUpForm: FormGroup;
 
 	constructor(
