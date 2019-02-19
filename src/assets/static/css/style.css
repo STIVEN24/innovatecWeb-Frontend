@@ -45,7 +45,7 @@ nav
 nav .nav-wrapper ul.right
   { margin-right:1em }
 
-nav .nav-wrapper ul.right .dropdown-trigger:hover i.material-icons
+nav .nav-wrapper ul.right li:not(:last-child) .dropdown-trigger:hover i.material-icons
     { transform:rotate(180deg)  }
 .dropdown-content a.active, .sidenav a.active
   { background-color: #eee; font-weight:bold; color:#00777e !important }

@@ -83,6 +83,7 @@
             <!-- dropdown header -->
             <li><a class="dropdown-trigger teal-text" data-target="proyectos_investigacion">Proyectos de investigación<i class="material-icons right">expand_more</i></a></li>
             <li><a class="dropdown-trigger teal-text" data-target="semilleros_investigacion">Semilleros de investigación<i class="material-icons right">expand_more</i></a></li>
+            <li><a class="dropdown-trigger teal-text" data-target="auth"><i class="material-icons right">person</i></a></li>
             <!-- dropdown-content -->
             <ul id='proyectos_investigacion' class='dropdown-content'>
                 <li><a routerLinkActive="active" routerLink="/proyectos_investigacion/alumbrado">Alumbrado público</a></li>
@@ -101,6 +102,10 @@
                 <li><a routerLink="/semilleros_investigacion/proyectos_desarrollo">Proyectos en desarrollo</a></li>
                 <li><a routerLink="/semilleros_investigacion/resultados">Resultados</a></li>
                 <li><a routerLink="/signUp">Regístrate</a></li>
+            </ul>
+            <ul id='auth' class='dropdown-content'>
+                <li><a routerLink="/logIn">Iniciar sesión</a></li>
+                <li><a (click)="logOut()">Cerrar sesión</a></li>
             </ul>
         </ul>
     </div>
