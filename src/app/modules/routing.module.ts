@@ -27,15 +27,18 @@ import { AgriculturaComponent } from '../components/proyectos-investigacion/agri
 // --- conocenos --- //
 import { ConocenosComponent } from '../components/conocenos/conocenos.component';
 
+// --- guard --- //
+import { AuthGuard } from '../guard/auth.guard';
+
 const routes: Routes = [
   { path: '', component: indexComponent },
 
   // --- --- admin --- --- //
   // --- usuarios --- //
-  { path: 'admin', component: UsuariosComponent },
-  { path: 'admin/:usuarios', component: UsuariosComponent },
-  { path: 'admin/usuarios/create', component: signUp },
-  { path: 'admin/usuario/update/:id', component: signUp },
+  { path: 'admin', component: UsuariosComponent, canActivate: [AuthGuard] },
+  { path: 'admin/:usuarios', component: UsuariosComponent, canActivate: [AuthGuard] },
+  { path: 'admin/usuarios/create', component: signUp, canActivate: [AuthGuard] },
+  { path: 'admin/usuario/update/:id', component: signUp, canActivate: [AuthGuard] },
   // --- rols --- //
   { path: 'admin/:roles', component: UsuariosComponent },
   { path: 'admin/rol/create', component: RolFormComponent },
@@ -43,7 +46,7 @@ const routes: Routes = [
   // --- auth --- //
   { path: 'logIn', component: logIn },
   { path: 'signUp', component: signUp },
-  { path: 'update/:id', component: signUp },
+  { path: 'update/:id', component: signUp, canActivate: [AuthGuard] },
 
   // --- proyectos de investigación --- //
   { path: 'proyectos_investigacion/potabilizacion', component: PotabilizacionComponent },

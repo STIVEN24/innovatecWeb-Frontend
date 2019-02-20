@@ -20,8 +20,13 @@ export class UsuariosComponent implements OnInit {
   constructor(
     private cuentaService: CuentaService,
     private rolService: RolService,
-    private activatedRoute: ActivatedRoute
-  ) { }
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
+    if (this.cuentaService.getTokenUsuarioRol() != 'administrador') {
+      this.router.navigate(['/'])
+    }
+  }
 
   ngOnInit() {
 

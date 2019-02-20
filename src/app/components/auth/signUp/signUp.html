@@ -21,7 +21,7 @@
 
 <div class="row">
 	<!-- Warning -->
-	<div class="col m6 s12 l6 offset-l3">
+	<div class="col m6 s12 l6 offset-l3 offset-m3">
 		<div class="card-panel orange lighten-5">
 			<ul>
 				<li>Campos con asteriscos(*) son obligatorios.</li>
@@ -30,10 +30,10 @@
 		</div>
 	</div>
 	<!-- Formmulario -->
-	<form class="col s12" [formGroup]="signUpForm" (ngSubmit)="update ? updateUsuario() : signUp()" autocomplete="off">
+	<form class="col s12 m12" [formGroup]="signUpForm" (ngSubmit)="update ? updateUsuario() : signUp()" autocomplete="off">
 		<div class="row">
 			<!-- tipo de documento -->
-			<div class="input-field col l3 offset-l3">
+			<div class="input-field col s12 l3 m6 offset-l3">
 				<p *ngFor="let tipo_documento of tipos_documento">
 					<label>
 						<input class="with-gap" name="id_tipo_documento" type="radio" [value]="tipo_documento.id_tipo_documento" formControlName="id_tipo_documento" [(ngModel)]="cuenta.id_tipo_documento"/>
@@ -46,7 +46,7 @@
 			</div>
 			<!-- / -->
 			<!-- Número de documento -->
-			<div class="input-field col l3">
+			<div class="input-field col s12 l3 m6">
 				<input class="{{ submitted && getErrors.documento.errors ? 'invalid' : '' }}" id="documento" name="documento" type="tel" formControlName="documento" value="{{ cuenta.documento == 0 ? null : null }}" [(ngModel)]="cuenta.documento">
 				<label for="documento" class="{{ cuenta.documento ? 'active' : '' || submitted && getErrors.documento.errors ? 'active' : '' }}">Número de documento *</label>
 				<div *ngIf="submitted && getErrors.documento.errors" class="red-text">
@@ -58,7 +58,7 @@
 		</div>
 		<div class="row">
 			<!-- Primer nombre -->
-			<div class="input-field col l3 offset-l3">
+			<div class="input-field col s12 l3 m6 offset-l3">
 				<input class="{{ submitted && getErrors.primer_nombre.errors ? 'invalid' : '' }}" id="primer_nombre" name="primer_nombre" type="text" formControlName="primer_nombre" [(ngModel)]="cuenta.primer_nombre">
 				<label for="primer_nombre" class="{{ cuenta.primer_nombre ? 'active' : '' || submitted && getErrors.primer_nombre.errors ? 'active' : '' }}">Primer nombre *</label>
 				<div *ngIf="submitted && getErrors.primer_nombre.errors" class="red-text">
@@ -67,7 +67,7 @@
 			</div>
 			<!-- / -->
 			<!-- Segundo Nombre -->
-			<div class="input-field col l3">
+			<div class="input-field col s12 l3 m6">
 				<input id="segundo_nombre" type="text" name="segundo_nombre" formControlName="segundo_nombre" [(ngModel)]="cuenta.segundo_nombre">
 				<label for="segundo_nombre" class="{{ cuenta.segundo_nombre ? 'active' : '' }}">Segundo nombre (Opcional)</label>
 			</div>
@@ -75,7 +75,7 @@
 		</div>
 		<div class="row">
 			<!-- Primer apellido -->
-			<div class="input-field col l3 offset-l3">
+			<div class="input-field col s12 l3 m6 offset-l3">
 				<input class="{{ submitted && getErrors.primer_apellido.errors ? 'invalid' : '' }}" id="primer_apellido" type="text" name="primer_nombre" formControlName="primer_apellido" [(ngModel)]="cuenta.primer_apellido">
 				<label for="primer_apellido" class="{{ cuenta.primer_apellido ? 'active' : '' || submitted && getErrors.primer_apellido.errors ? 'active' : '' }}">Primer apellido *</label>
 				<div *ngIf="submitted && getErrors.primer_apellido.errors" class="red-text">
@@ -84,7 +84,7 @@
 			</div>
 			<!-- / -->
 			<!-- Segundo Apellido -->
-			<div class="input-field col l3">
+			<div class="input-field col s12 l3 m6">
 				<input id="segundo_apellido" type="text" name="segundo_apellido" formControlName="segundo_apellido" [(ngModel)]="cuenta.segundo_apellido">
 				<label for="segundo_apellido" class="{{ cuenta.segundo_apellido ? 'active' : '' }}">Segundo apellido (Opcional)</label>
 			</div>
@@ -92,13 +92,13 @@
 		</div>
 		<div class="row">
 			<!-- Celular -->
-			<div class="input-field col l3 offset-l3">
+			<div class="input-field col s12 l3 m3 offset-l3">
 				<input id="celular" type="tel" name="celular" formControlName="celular" value="{{ cuenta.celular == 0 ? '' : '' }}" [(ngModel)]="cuenta.celular">
 				<label for="celular" class="{{ cuenta.celular ? 'active' : '' }}">Celular o Teléfono (Opcional)</label>
 			</div>
 			<!-- / -->
 			<!-- Correo -->
-			<div class="input-field col l3">
+			<div class="input-field col s12 l3 m6">
 				<input class="{{ submitted && getErrors.correo.errors ? 'invalid' : '' }}" id="correo" type="email" name="correo" formControlName="correo" [(ngModel)]="cuenta.correo">
 				<label for="correo" class="{{ cuenta.correo ? 'active' : '' || submitted && getErrors.correo.errors ? 'active' : '' }}">Correo electrónico *</label>
 				<div *ngIf="submitted && getErrors.correo.errors" class="red-text">
@@ -109,7 +109,7 @@
 			</div>
 			<!-- / -->
 			<!-- Roles -->
-			<div class="input-field col offset-l3">
+			<div class="input-field col s12 m3 offset-l3">
 				<p *ngFor="let rol of roles">
 					<label>
 						<input class="with-gap" name="id_rol" type="radio" [value]="rol.id_rol" formControlName="id_rol" [(ngModel)]="cuenta.id_rol"/>

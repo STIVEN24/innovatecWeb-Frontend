@@ -29,7 +29,7 @@ export class CuentaService {
   createUser(cuenta: Cuenta) {
     return this.http.post(`${this.API_URI}`, cuenta);
   }
-  
+
   logIn(logIn: Cuenta) {
     delete logIn.celular;
     delete logIn.id_cuenta;
@@ -44,6 +44,24 @@ export class CuentaService {
 
   updateUser(id: number, updateUser: Cuenta): Observable<Cuenta> {
     return this.http.put(`${this.API_URI}${id}`, updateUser);
+  }
+
+  // --- Authentication --- //
+  public get logged(): boolean {
+    return (localStorage.getItem('authToken') !== null);
+  }
+  loggedIn() {
+    return !!localStorage.getItem('authToken');
+  }
+  getTokenLogIn() {
+    return localStorage.getItem('authToken');
+  }
+  logOut() {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('authTokenUsuarioRol');
+  }
+  getTokenUsuarioRol() {
+    return localStorage.getItem('authTokenUsuarioRol');
   }
 
 }

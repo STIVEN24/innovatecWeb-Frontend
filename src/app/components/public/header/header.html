@@ -104,8 +104,9 @@
                 <li><a routerLink="/signUp">Regístrate</a></li>
             </ul>
             <ul id='auth' class='dropdown-content'>
-                <li><a routerLink="/logIn">Iniciar sesión</a></li>
-                <li><a (click)="logOut()">Cerrar sesión</a></li>
+                <li *ngIf="!cuentaService.logged"><a routerLinkActive="active" routerLink="/logIn">Iniciar sesión</a></li>
+                <li *ngIf="cuentaService.logged" ><a (click)="logOut()">Cerrar sesión</a></li>
+                <li *ngIf="cuentaService.getTokenUsuarioRol() == 'administrador'"><a routerLinkActive="active" routerLink="/admin">Dashboard</a></li>
             </ul>
         </ul>
     </div>

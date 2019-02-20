@@ -20,7 +20,12 @@ export class logIn implements OnInit {
 		private toasts: ToastService,
 		private cuentaService: CuentaService,
 		private router: Router
-	) { }
+	) {
+		if (this.cuentaService.logged) {
+			this.toasts.CreateElementToast("Ya tienes sesión abierta");
+			this.router.navigate(['/'])
+		};
+	}
 
 	ngOnInit() {
 		this.logInFormGroup = this.formBuilder.group({
@@ -37,9 +42,10 @@ export class logIn implements OnInit {
 			return;
 		}
 		this.cuentaService.logIn(this.logInFormGroup.value).subscribe(
-			res => {
-				this.toasts.CreateElementToast("Ahora tienes sesión abierta");
-				this.router.navigate(['/'])
+			(res:any) => {
+				localStorage.setItem("authToken", res.token);
+				localStorage.setItem('authTokenUsuarioRol', res.usuario[0].nombre_rol);
+				this.router.navigate(['/']);
 			},
 			err => this.toasts.CreateElementToast(err.error.text)
 		)
