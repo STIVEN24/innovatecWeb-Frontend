@@ -10,7 +10,6 @@ import { Rol } from '../models/Rol';
 })
 export class RolService {
 
-  // API_URI = 'http://localhost:3000/api/roles/';
   API_URI = 'https://innovatec-server.herokuapp.com/api/roles/';
   
   constructor(private http: HttpClient) { }
@@ -30,9 +29,5 @@ export class RolService {
   createRol(rol: Rol) {
     return this.http.post(`${this.API_URI}`, rol);
   }
-
-  //   updateUser(id : number, updateUser : User ) : Observable<User> {
-  //     return this.http.put(`${this.API_URI}/rols/${id}`, updateUser);
-  //   }
 
 }

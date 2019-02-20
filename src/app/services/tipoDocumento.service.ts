@@ -9,7 +9,6 @@ import { TipoDocumento } from '../models/TipoDocumento';
 })
 export class TipoDocumentoService {
 
-    // API_URI = 'http://localhost:3000/api/tiposDocumento/';
     API_URI = 'https://innovatec-server.herokuapp.com/api/tiposDocumento/';
 
     constructor(private http: HttpClient) { }
@@ -29,9 +28,5 @@ export class TipoDocumentoService {
     createTipoDocumento(tipoDocumento: TipoDocumento) {
         return this.http.post(`${this.API_URI}`, tipoDocumento);
     }
-
-    //   updateUser(id : number, updateUser : User ) : Observable<User> {
-    //     return this.http.put(`${this.API_URI}/rols/${id}`, updateUser);
-    //   }
 
 }
